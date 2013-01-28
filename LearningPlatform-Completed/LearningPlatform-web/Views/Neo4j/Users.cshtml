@@ -1,0 +1,27 @@
+﻿@model IEnumerable<LearningPlatform.Models.User>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Users</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table>
+     <tr>
+        
+        <th>User Name</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        
+    </tr>
+}
+
+</table>

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<LearningPlatform.Models.Course>
+
+<ul id="categories">
+    @foreach (var course in Model)
+    {
+        <li>@Html.ActionLink(course.CourseName, 
+                "Browse", "Platform",
+                  new { Course = course.CourseName }, null)
+        </li>
+    }
+</ul>

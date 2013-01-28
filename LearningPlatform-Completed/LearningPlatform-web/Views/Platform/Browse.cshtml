@@ -1,0 +1,14 @@
+﻿@model LearningPlatform.Models.Course
+@{
+    ViewBag.Title = "Browse Chapters";
+}
+<div class="genre">
+    <h3>
+        <em>@Model.CourseName</em> : Chapters</h3>
+    <ul id="album-list">
+        @foreach (var chapter in Model.Chapters)
+        { <li><a href="@Url.Action("Details", new { id = chapter.ChapterId })">
+            <img alt="@chapter.ChapterTitle" src="@chapter.ChapterArtUrl" />
+            <span>@chapter.ChapterTitle</span> </a></li> }
+    </ul>
+</div>

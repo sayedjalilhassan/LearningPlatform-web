@@ -1,0 +1,20 @@
+﻿@model List<LearningPlatform.Models.Chapter>
+@{
+    ViewBag.Title = "Learning Platform";
+}
+<div id="promotion">
+</div>
+
+<h3><em>Fresh</em> off the grill</h3>
+
+<ul id="grill-list">
+    @foreach (var chapter in Model)
+    {
+        <li><a href="@Url.Action("Details", "Platform",
+        new { id = chapter.ChapterId })">
+
+            <img alt="@chapter.ChapterTitle" src="@chapter.ChapterArtUrl" />
+            <span>@chapter.ChapterTitle</span> </a>
+        </li>
+    }
+</ul>

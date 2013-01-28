@@ -1,0 +1,35 @@
+﻿@model LearningPlatform.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Course</legend>
+
+    <div class="display-label">CourseName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CourseName)
+    </div>
+
+    <div class="display-label">CourseDescription</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CourseDescription)
+    </div>
+
+    <div class="display-label">Credits</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Credits)
+    </div>
+
+    <div class="display-label">Department</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Department.DepartmentName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.CourseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

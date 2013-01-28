@@ -1,0 +1,14 @@
+﻿@model IEnumerable<LearningPlatform.Models.Course>
+@{
+    ViewBag.Title = "Browse";
+}
+<h3>
+    Browse  Courses</h3>
+<p>
+    Select from @Model.Count() courses:</p>
+<ul>
+    @foreach (var course in Model)
+    { 
+       <li>@Html.ActionLink(course.CourseName, "Browse", new { course = course.CourseName })</li>
+    }
+</ul>

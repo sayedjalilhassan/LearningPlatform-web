@@ -1,0 +1,20 @@
+﻿@model LearningPlatform.Models.Chapter
+@{
+    ViewBag.Title = "Details";
+}
+<h2>
+    Chapter: @Model.ChapterTitle</h2>
+<p>
+    <img alt="@Model.ChapterTitle" src="@Model.ChapterArtUrl" />
+</p>
+<div id="album-details">
+    <p>
+        <em>Course:</em> @Model.Course.CourseName
+    </p>
+    <p>
+        <em>Instructor:</em> @Model.Instructor.InstructorName
+    </p>
+    <p class="button">
+        @Html.ActionLink("Add to cart", "AddToCart","DownloadCart", new { id = Model.ChapterId }, "")
+    </p>
+</div>

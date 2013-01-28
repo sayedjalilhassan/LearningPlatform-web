@@ -1,0 +1,110 @@
+﻿@model LearningPlatform.ViewModels.InstructorIndexData
+
+@{
+    ViewBag.Title = "Instructors";
+}
+
+<h2>Instructors</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table> 
+    <tr> 
+        <th></th> 
+        <th>Instructor Name</th> 
+        <th>Courses</th>
+    </tr> 
+    @foreach (var item in Model.Instructors) 
+    { 
+        string selectedRow = "";
+        if (item.InstructorID == ViewBag.InstructorID) 
+        { 
+            selectedRow = "selectedrow"; 
+        } 
+        <tr class="@selectedRow" valign="top"> 
+            <td> 
+                @Html.ActionLink("Select", "Index", new { id = item.InstructorID }) | 
+                @Html.ActionLink("Edit", "Edit", new { id = item.InstructorID }) | 
+                @Html.ActionLink("Details", "Details", new { id = item.InstructorID }) | 
+                @Html.ActionLink("Delete", "Delete", new { id = item.InstructorID }) 
+            </td> 
+            <td> 
+                @item.InstructorName 
+            </td> 
+            <td>
+                @{
+                    foreach (var course in item.Courses)
+                    {
+                        @course.CourseId @:  @course.CourseName <br />
+                    }
+                }
+           </td>
+
+        </tr> 
+    } 
+</table>
+
+@if (Model.Courses != null)
+{ 
+    <p></p>
+    <p></p>
+    <h3>Courses Taught by Selected Instructor</h3> 
+<table> 
+    <tr> 
+        <th></th> 
+        <th>Course Code</th> 
+        <th>Course Title</th> 
+        <th>Department</th> 
+    </tr> 
+ 
+    @foreach (var item in Model.Courses)
+    {
+        string selectedRow = "";
+        if (item.CourseId == ViewBag.CourseID)
+        {
+            selectedRow = "selectedrow";
+        } 
+    <tr class="@selectedRow"> 
+        <td> 
+            @Html.ActionLink("Select", "Index", new { courseID = item.CourseId }) 
+        </td> 
+        <td> 
+            @item.CourseId 
+        </td> 
+        <td> 
+            @item.CourseName 
+        </td> 
+        <td> 
+            @item.Department.DepartmentName 
+        </td> 
+    </tr> 
+    } 
+ 
+</table>
+}
+
+@if (Model.Enrollments != null) 
+{ 
+    <p></p>
+    <p></p>
+    <h3> 
+        Students Enrolled in Selected Course</h3> 
+    <table> 
+        <tr> 
+            <th>Student Name</th> 
+            <th>Grade</th> 
+        </tr> 
+        @foreach (var item in Model.Enrollments)
+        { 
+            <tr> 
+                <td> 
+                    @item.Student.StudentName 
+                </td> 
+                <td> 
+                    @Html.DisplayFor(modelItem => item.Grade) 
+                </td> 
+            </tr> 
+        } 
+    </table> 
+}

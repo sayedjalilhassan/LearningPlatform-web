@@ -1,0 +1,35 @@
+﻿@model LearningPlatform.Models.Chapter
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Chapter</legend>
+
+    <div class="display-label">Course</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Course.CourseName)
+    </div>
+
+    <div class="display-label">Instructor</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Instructor.InstructorName)
+    </div>
+
+    <div class="display-label">ChapterTitle</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChapterTitle)
+    </div>
+
+    <div class="display-label">ChapterArtUrl</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChapterArtUrl)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ChapterId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

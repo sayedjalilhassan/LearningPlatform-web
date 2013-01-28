@@ -1,0 +1,57 @@
+﻿@model LearningPlatform.Models.Chapter
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Chapter</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CourseId, "Course")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CourseId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CourseId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InstructorId, "Instructor")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("InstructorId", String.Empty)
+            @Html.ValidationMessageFor(model => model.InstructorId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChapterTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChapterTitle)
+            @Html.ValidationMessageFor(model => model.ChapterTitle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChapterArtUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChapterArtUrl)
+            @Html.ValidationMessageFor(model => model.ChapterArtUrl)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
