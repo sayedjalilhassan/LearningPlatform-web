@@ -11,6 +11,7 @@ namespace LearningPlatform.Controllers
 {
     public class AccountController : Controller
     {
+        private PlatformDbContext db = new PlatformDbContext();
         public static User loggedInUser { get; set; }
         //
         // GET: /Account/LogOn
@@ -28,30 +29,60 @@ namespace LearningPlatform.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.UserName, model.Password))
+                if (getCurrentUser(model.UserName, model.Password) != null)
                 {
-                    MigrateDownloadCart(model.UserName);
-                    loggedInUser.UserName = model.UserName;
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+
+                    if (Membership.ValidateUser(model.UserName, model.Password))
                     {
-                        return Redirect(returnUrl);
+                        MigrateDownloadCart(model.UserName);
+                        //loggedInUser.UserName = model.UserName;
+                        FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                        Session["currentUser"] = getCurrentUser(model.UserName, model.Password);
+                        if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                            && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                        {
+                            return Redirect(returnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        loggedInUser = null;
+                        ModelState.AddModelError("", "The user name or password provided is incorrect.");
                     }
+
                 }
                 else
                 {
                     loggedInUser = null;
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "The user does not exist.");
                 }
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        private User getCurrentUser(string username, string password)
+        {
+            // User current =
+            // db.Users.Single(u => u.Email_ID == username);
+
+            var current = (from user in db.Users
+                           where user.Email_ID.Equals(username)
+                           select user).FirstOrDefault();
+            if (current != null)
+            {
+                if (username.Equals(current.Email_ID) && password.Equals(current.Password))
+                    return current;
+                else
+                    return null;
+            }
+
+            return null;
         }
 
         //
@@ -66,7 +97,7 @@ namespace LearningPlatform.Controllers
 
         //
         // GET: /Account/Register
-        
+
         public ActionResult Register()
         {
             return View();

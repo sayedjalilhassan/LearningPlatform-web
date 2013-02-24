@@ -364,20 +364,20 @@ tr:hover
     display: block;
     text-align: right;
     margin: 10px;
-    color: ActiveBorder;
+    color: #555;
 }
 
 #logindisplay a:link {
-    color: Red;
+    color: #555;
     text-decoration: underline;
 }
 
 #logindisplay a:visited {
-    color: Red;
+    color: #555;
     text-decoration: underline;
 }
 
 #logindisplay a:hover {
-    color: Red;
+    color: #555;
     text-decoration: none;
 }

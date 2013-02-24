@@ -38,7 +38,7 @@ namespace LearningPlatform.Controllers
         public ActionResult Create()
         {
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName");
-            ViewBag.InstructorId = new SelectList(db.Instructors, "InstructorId", "InstructorName");
+            ViewBag.InstructorId = new SelectList(db.Instructors, "UserID", "InstructorName");
             return View();
         } 
 
@@ -56,7 +56,7 @@ namespace LearningPlatform.Controllers
             }
 
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", chapter.CourseId);
-            ViewBag.InstructorId = new SelectList(db.Instructors, "InstructorId", "InstructorName", chapter.InstructorId);
+            ViewBag.InstructorId = new SelectList(db.Instructors, "UserID", "InstructorName", chapter.InstructorId);
             return View(chapter);
         }
         
@@ -67,7 +67,7 @@ namespace LearningPlatform.Controllers
         {
             Chapter chapter = db.Chapters.Find(id);
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", chapter.CourseId);
-            ViewBag.InstructorId = new SelectList(db.Instructors, "InstructorId", "InstructorName", chapter.InstructorId);
+            ViewBag.InstructorId = new SelectList(db.Instructors, "UserID", "InstructorName", chapter.InstructorId);
             return View(chapter);
         }
 
@@ -84,7 +84,7 @@ namespace LearningPlatform.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", chapter.CourseId);
-            ViewBag.InstructorId = new SelectList(db.Instructors, "InstructorId", "InstructorName", chapter.InstructorId);
+            ViewBag.InstructorId = new SelectList(db.Instructors, "UserID", "InstructorName", chapter.InstructorId);
             return View(chapter);
         }
 

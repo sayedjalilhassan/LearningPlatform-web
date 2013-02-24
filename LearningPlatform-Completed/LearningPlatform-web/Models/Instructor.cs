@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LearningPlatform.Models
 {
-    public class Instructor
+    public class Instructor:User
     {
-        public int InstructorID { get; set; }
+        //public int InstructorID { get; set; }
 
         [MaxLength(100)]
         [Required(ErrorMessage = "Instructor name is required.")]

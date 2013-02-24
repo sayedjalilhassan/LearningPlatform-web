@@ -19,14 +19,14 @@
     @{
         var item = Model.CurrentInstructor;
         string selectedRow = "";
-        if (item.InstructorID == ViewBag.InstructorID) 
+        if (item.UserID == ViewBag.InstructorID) 
         { 
             selectedRow = "selectedrow"; 
         } 
         <tr class="@selectedRow" valign="top"> 
             <td> 
-                @Html.ActionLink("Select", "Index", new { id = item.InstructorID }) | 
-                @Html.ActionLink("Details", "Details", new { id = item.InstructorID }) | 
+                @Html.ActionLink("Select", "ManageCourses", new { id = item.UserID }) | 
+                @Html.ActionLink("Details", "Details", new { id = item.UserID }) | 
             </td> 
             <td> 
                 @item.InstructorName 
@@ -47,11 +47,12 @@
     
 </table>
 
+
 @if (Model.Courses != null)
 { 
     <p></p>
     <p></p>
-    <h3>Courses Taught by Selected Instructor</h3> 
+    <h3>Courses Taught by You</h3> 
 <table> 
     <tr> 
         <th></th> 
@@ -69,7 +70,7 @@
         } 
     <tr class="@selectedRow"> 
         <td> 
-            @Html.ActionLink("Select", "Index", new { courseID = citem.CourseId }) 
+            @Html.ActionLink("Select", "ManageCourses", new { courseID = citem.CourseId }) 
         </td> 
         <td> 
             @citem.CourseId 
@@ -111,3 +112,9 @@
     </table> 
 }
 
+
+<p>
+    <p></p>
+
+     << @Html.ActionLink("Back to DashBoard", "Index")
+</p>

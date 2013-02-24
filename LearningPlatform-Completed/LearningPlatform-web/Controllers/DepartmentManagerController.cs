@@ -38,7 +38,7 @@ namespace LearningPlatform.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.InstructorID = new SelectList(db.Instructors, "InstructorId", "InstructorName");
+            ViewBag.InstructorID = new SelectList(db.Instructors, "UserID", "InstructorName");
             return View();
         } 
 
@@ -55,7 +55,7 @@ namespace LearningPlatform.Controllers
                 return RedirectToAction("Index");  
             }
 
-            ViewBag.InstructorID = new SelectList(db.Instructors, "InstructorId", "InstructorName", department.InstructorID);
+            ViewBag.InstructorID = new SelectList(db.Instructors, "UserID", "InstructorName", department.UserID);
             return View(department);
         }
         
@@ -65,7 +65,7 @@ namespace LearningPlatform.Controllers
         public ActionResult Edit(int id)
         {
             Department department = db.Departments.Find(id);
-            ViewBag.InstructorID = new SelectList(db.Instructors, "InstructorId", "InstructorName", department.InstructorID);
+            ViewBag.InstructorID = new SelectList(db.Instructors, "UserID", "InstructorName", department.UserID);
             return View(department);
         }
 
@@ -92,9 +92,9 @@ namespace LearningPlatform.Controllers
                 if (databaseValues.DepartmentName != clientValues.DepartmentName)
                     ModelState.AddModelError("Name", "Current value: "
                         + databaseValues.DepartmentName);
-                if (databaseValues.InstructorID != clientValues.InstructorID)
+                if (databaseValues.UserID != clientValues.UserID)
                     ModelState.AddModelError("InstructorID", "Current value: "
-                        + db.Instructors.Find(databaseValues.InstructorID).InstructorName);
+                        + db.Instructors.Find(databaseValues.UserID).InstructorName);
                 ModelState.AddModelError(string.Empty, "The record you attempted to edit "
                     + "was modified by another user after you got the original value. The "
                     + "edit operation was canceled and the current values in the database "
@@ -109,7 +109,7 @@ namespace LearningPlatform.Controllers
                     " Try again, and if the problem persists contact your system administrator.");
             }
 
-            ViewBag.InstructorID = new SelectList(db.Instructors, "InstructorId", "InstructorName", department.InstructorID);
+            ViewBag.InstructorID = new SelectList(db.Instructors, "UserID", "InstructorName", department.UserID);
             return View(department);
         }
 

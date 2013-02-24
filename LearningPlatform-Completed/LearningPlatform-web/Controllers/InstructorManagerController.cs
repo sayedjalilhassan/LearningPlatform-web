@@ -26,7 +26,7 @@ namespace LearningPlatform.Controllers
             if (id != null)
             {
                 ViewBag.InstructorID = id.Value;
-                viewModel.Courses = viewModel.Instructors.Where(i => i.InstructorID == id.Value).Single().Courses;
+                viewModel.Courses = viewModel.Instructors.Where(i => i.UserID == id.Value).Single().Courses;
             }
 
             if (courseID != null)
@@ -52,6 +52,7 @@ namespace LearningPlatform.Controllers
 
         public ActionResult Create()
         {
+
             return View();
         }
 
@@ -78,7 +79,7 @@ namespace LearningPlatform.Controllers
         {
             Instructor instructor = db.Instructors
                 .Include(i => i.Courses)
-                .Where(i => i.InstructorID == id)
+                .Where(i => i.UserID == id)
                 .Single();
             PopulateAssignedCourseData(instructor);
             return View(instructor);
@@ -92,7 +93,7 @@ namespace LearningPlatform.Controllers
         {
             var instructorToUpdate = db.Instructors
                 .Include(i => i.Courses)
-                .Where(i => i.InstructorID == id)
+                .Where(i => i.UserID == id)
                 .Single();
             if (TryUpdateModel(instructorToUpdate, "", null, new string[] { "Courses" }))
             {

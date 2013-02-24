@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LearningPlatform.Models
 {
-    public class Student
+    public class Student:User
     {
-        public int StudentID { get; set; }
+        //public int StudentID { get; set; }
 
         [Required(ErrorMessage = "Last name is required.")]
         [Display(Name = "Last Name")]

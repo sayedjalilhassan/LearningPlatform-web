@@ -1,0 +1,52 @@
+﻿@model LearningPlatform.Models.Student
+@{
+    ViewBag.Title = "Courses Details";
+}
+<h2>
+    Details</h2>
+<fieldset>
+    <legend>Student</legend>
+    <div class="display-label">
+        LastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+    <div class="display-label">
+        FirstMidName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstMidName)
+    </div>
+    <div class="display-label">
+        EnrollmentDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EnrollmentDate)
+    </div>
+    <div class="display-label">
+        @Html.LabelFor(model => model.Enrollments)</div>
+    <div class="display-field">
+        <table>
+            <tr>
+                <th>
+                    Course Title
+                </th>
+                <th>
+                    Grade
+                </th>
+            </tr>
+            @foreach (var item in Model.Enrollments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course.CourseName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grade)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to DashBoard", "Index")
+</p>

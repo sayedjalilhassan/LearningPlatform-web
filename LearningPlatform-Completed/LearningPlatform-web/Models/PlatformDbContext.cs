@@ -9,6 +9,10 @@ namespace LearningPlatform.Models
 {
     public class PlatformDbContext : DbContext
     {
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Admin> Admins { get; set; }
+
         public DbSet<Student> Students { get; set; }
 
         public DbSet<Instructor> Instructors { get; set; }
@@ -34,7 +38,7 @@ namespace LearningPlatform.Models
             modelBuilder.Entity<Course>()
                .HasMany(c => c.Instructors).WithMany(i => i.Courses)
                .Map(t => t.MapLeftKey("CourseID")
-                   .MapRightKey("InstructorID")
+                   .MapRightKey("UserID")
                    .ToTable("CourseInstructor"));
             modelBuilder.Entity<Department>()
                 .HasOptional(x => x.Administrator);

@@ -1,0 +1,20 @@
+﻿@model LearningPlatform.Models.Instructor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Instructor</legend>
+
+    <div class="display-label">InstructorName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InstructorName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
+    @Html.ActionLink("Back to List", "ManageCourses")
+</p>

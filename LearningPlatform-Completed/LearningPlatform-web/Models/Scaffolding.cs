@@ -93,7 +93,7 @@ namespace LearningPlatform.Models
 
             // Directors
 
-            User lucas = new User() { UserName = "George Lucas" };
+            User lucas = new User() { UserName = "George Lucas", Email_ID ="Lucas", Password ="student_1" };
 
             var georgeLucas = client.Create(lucas,
                 new IRelationshipAllowingParticipantNode<User>[0],
@@ -102,11 +102,11 @@ namespace LearningPlatform.Models
                     new IndexEntry("User")
                     {
                         { "Name", lucas.UserName },
-                        { "Id", lucas.UserId.ToString() }
+                        { "Id", lucas.UserID.ToString() }
                     }
                 });
 
-            User spielberg = new User() { UserName = "Steven Spielberg" };
+            User spielberg = new User() { UserName = "Steven Spielberg", Email_ID = "Lucas", Password = "student_1" };
 
             var stevenSpielberg = client.Create(spielberg,
                 new IRelationshipAllowingParticipantNode<User>[0],
@@ -115,7 +115,7 @@ namespace LearningPlatform.Models
                     new IndexEntry("User")
                     {
                         { "Name", spielberg.UserName },
-                        { "Id", spielberg.UserId.ToString() }
+                        { "Id", spielberg.UserID.ToString() }
                     }
                 });
 
