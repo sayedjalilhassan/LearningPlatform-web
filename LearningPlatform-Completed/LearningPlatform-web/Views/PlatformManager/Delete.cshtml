@@ -4,13 +4,19 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete Confirmation</h2>
-<p>Are you sure you want to delete the chapter titled <strong>@Model.ChapterTitle</strong>?
-</p>
-@using (Html.BeginForm()) {
-<p>
-<input type="submit" value="Delete" />
-</p>
-<p> @Html.ActionLink("Back to List", "Index")
-</p>
-}
+
+<div class="span4 well">
+    <h2>Delete Confirmation</h2>
+	<div class="row">
+		<div class="span3">
+            <p>Are you sure you want to delete the chapter titled <strong>@Model.ChapterTitle</strong>?</p>
+            @using (Html.BeginForm()) {
+                
+                <button class="btn btn-primary" type="submit">Delete</button>
+                <a href="@Url.Action("Index")"><button class="btn btn-primary">Back to List </button></a>
+            }
+		</div>
+	</div>
+</div>
+
+       

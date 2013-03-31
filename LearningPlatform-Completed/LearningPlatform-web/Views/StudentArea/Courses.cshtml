@@ -2,51 +2,66 @@
 @{
     ViewBag.Title = "Courses Details";
 }
-<h2>
-    Details</h2>
+<!--      sdsdksajdsadkasd         -->
 <fieldset>
-    <legend>Student</legend>
-    <div class="display-label">
-        LastName</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.LastName)
-    </div>
-    <div class="display-label">
-        FirstMidName</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.FirstMidName)
-    </div>
-    <div class="display-label">
-        EnrollmentDate</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.EnrollmentDate)
-    </div>
-    <div class="display-label">
-        @Html.LabelFor(model => model.Enrollments)</div>
-    <div class="display-field">
-        <table>
-            <tr>
-                <th>
-                    Course Title
-                </th>
-                <th>
-                    Grade
-                </th>
-            </tr>
-            @foreach (var item in Model.Enrollments)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Course.CourseName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Grade)
-                    </td>
-                </tr>
-            }
-        </table>
+    <h2>
+        Courses Details</h2>
+    <div class=" well">
+        <div class="row">
+            <div class="span8">
+                <p>
+                    <strong>Last Name:</strong>
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.LastName)</p>
+                <p>
+                    <strong>First Mid Name:</strong>
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.FirstMidName)</p>
+                <p>
+                    <strong>Enrollment Date:</strong></p>
+                <p>
+                    @Html.DisplayFor(model => model.EnrollmentDate)</p>
+                <p>
+                    <strong>@Html.LabelFor(model => model.Enrollments)</strong></p>
+                <div class="well">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Course Title
+                                </th>
+                                <th>
+                                    Grade
+                                </th>
+                                <th style="width: 100px;">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Enrollments)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Course.CourseName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Grade)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    <a href="@Url.Action("Index")">
+                        <button class="btn btn-primary">
+                            Back to DashBoard
+                        </button>
+                    </a>
+                </p>
+            </div>
+        </div>
     </div>
 </fieldset>
-<p>
-    @Html.ActionLink("Back to DashBoard", "Index")
-</p>

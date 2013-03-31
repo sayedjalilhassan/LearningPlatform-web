@@ -29,5 +29,7 @@ namespace LearningPlatform.Models
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         
         public virtual ICollection<Instructor> Instructors { get; set; }
+
+        public virtual ICollection<Instructor> PreReqs { get; set; }
     }
 }

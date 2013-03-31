@@ -2,13 +2,28 @@
 @{
     ViewBag.Title = "Browse";
 }
-<h3>
-    Browse  Courses</h3>
-<p>
-    Select from @Model.Count() courses:</p>
-<ul>
-    @foreach (var course in Model)
-    { 
-       <li>@Html.ActionLink(course.CourseName, "Browse", new { course = course.CourseName })</li>
-    }
-</ul>
+
+<div class="well container">
+    <h3>
+        Browse Courses</h3>
+    <p>
+        Select from @Model.Count() courses:</p>
+    <ul class="thumbnails">
+        <!-- List start -->
+        @foreach (var course in Model)
+        {
+            <li class="span3">
+                <div class="thumbnail">
+                    <a href="@Url.Action("Browse", new { course = course.CourseName })">
+                        <div class="caption">
+                            <h5>@course.CourseName</h5>
+                        </div>
+                        <div class="thumbnail">
+                            <img alt="@course.CourseName" src="/Content/Images/placeholder.gif" />
+                        </div>
+                    </a>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

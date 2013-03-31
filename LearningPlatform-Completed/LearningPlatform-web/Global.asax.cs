@@ -34,7 +34,7 @@ namespace LearningPlatform
         {
             //System.Data.Entity.Database.SetInitializer(new MvcMusicStore.Models.SampleData());
             System.Data.Entity.Database.SetInitializer(new LearningPlatform.Models.SampleData());
-            Scaffolding sampleData = new Scaffolding();
+            //Scaffolding sampleData = new Scaffolding();
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);

@@ -1,11 +1,36 @@
 ﻿@{
     ViewBag.Title = "Instructor Area";
 }
+
 <h2>
-    Instructor Area</h2>
-<ul>
-    <li>@Html.ActionLink("Manage Your Courses", "ManageCourses") </li>
-    <li>@Html.ActionLink("Your Instructor's Profile", "Profile") </li>
-</ul>
+    DashBoard</h2>
+<div class="well">
+    <div class="row">
+        <div class="span4">
+            <img class="img-circle" src="/content/Images/user.jpg" />
+            <h4>
+                Courses</h4>
+            <p>
+                Manage Your Courses.
+            </p>
+            <p>
+                <a  href="@Url.Action("ManageCourses")">
+                    <button class="btn btn-primary">
+                        Enter >></button></a></p>
+        </div>
+        <div class="span4">
+            <img class="img-circle" src="/content/Images/user.jpg" />
+            <h4>
+                Profile</h4>
+            <p>
+                See Your Profile Inforfamtion.
+            </p>
+            <p>
+                <a  href="@Url.Action("Profile")">
+                    <button class="btn btn-primary">
+                        Enter >></button></a></p>
+        </div>
+    </div>
+</div>
 
 @ViewBag.User

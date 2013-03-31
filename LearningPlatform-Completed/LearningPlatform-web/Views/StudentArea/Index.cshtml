@@ -3,8 +3,31 @@
 }
 <h2>
     DashBoard</h2>
-<ul>
-    <li>@Html.ActionLink("Your Courses", "Courses") </li>
-    <li>@Html.ActionLink("Your Student Profile", "Profile") </li>
-</ul>
-
+<div class="well">
+    <div class="row">
+        <div class="span4">
+            <img class="img-circle" src="/content/Images/user.jpg" />
+            <h4>
+                Your Courses</h4>
+            <p>
+                Browse Your Enrollments.
+            </p>
+            <p>
+                <a  href="@Url.Action("Courses")">
+                    <button class="btn btn-primary">
+                        Enter >></button></a></p>
+        </div>
+        <div class="span4">
+            <img class="img-circle" src="/content/Images/user.jpg" />
+            <h4>
+                Your Student Profile</h4>
+            <p>
+                See Your Profile Inforfamtion.
+            </p>
+            <p>
+                <a  href="@Url.Action("Profile")">
+                    <button class="btn btn-primary">
+                        Enter >></button></a></p>
+        </div>
+    </div>
+</div>

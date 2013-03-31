@@ -1,5 +1,66 @@
-﻿@{
+﻿@model LearningPlatform.Models.Student
+@{
     ViewBag.Title = "Profile";
 }
-
-<h2>Profile</h2>
+<fieldset>
+    <div class="span4 well">
+        <h5>
+            Name: @Html.DisplayFor(model => model.FirstMidName) @Html.DisplayFor(model => model.LastName)
+        </h5>
+        <div class="row">
+            <div class="span1">
+                <img src="/content/Images/user.jpg" alt="" /></div>
+            <div class="span3">
+                <p>
+                    Email:
+                </p>
+                <p>
+                    <strong>@Html.DisplayFor(model => Model.Email_ID)</strong></p>
+                <p>
+                    Enrollment Date:
+                </p>
+                <p>
+                    <strong>@Html.DisplayFor(model => Model.EnrollmentDate)</strong></p>
+                @*<a href="@Url.Action("AddToCart","DownloadCart", new { id = Model.ChapterId })">
+            <span class=" badge badge-warning">Add to Cart</span> </a>*@
+            </div>
+        </div>
+    </div>
+</fieldset>
+<h4 class = "span8">
+    Recommended for You
+</h4>
+<div class="span8 well">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Course Title
+                </th>
+                <th>
+                    Grade
+                </th>
+                <th style="width: 100px;">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Enrollments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course.CourseName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grade)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("Index")">
+        <button class="btn btn-primary">
+            Back to DashBoard
+        </button>
+    </a>
+</div>

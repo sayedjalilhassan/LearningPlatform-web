@@ -1,12 +1,45 @@
 ﻿@{
     ViewBag.Title = "Member Login";
 }
-
-<h2>Log On as :</h2>
-
-<ul>
-
-       <li><a href="@Url.Content("~/PlatformManager/")">Administrator</a></li>
-       <li><a href="@Url.Content("~/InstructorArea/")">Instructor</a></li>
-       <li><a href="@Url.Content("~/StudentArea/")">Student</a></li> 
-</ul>
+<h2>
+    Login Menu</h2>
+<div class="container well">
+    <div class="row">
+        <div class="span4">
+            <img class="img-circle" src="/content/Images/user.jpg" />
+            <h4>
+                Administrator</h4>
+            <p>
+                Use this link if Your a Site Admin.
+            </p>
+            <p>
+                <a  href="@Url.Content("~/PlatformManager/")">
+                    <button class="btn btn-primary">
+                        Enter >></button></a></p>
+        </div>
+        <div class="span4">
+            <img class="img-circle" src="/content/Images/user.jpg" />
+            <h4>
+                Instructor</h4>
+            <p>
+                Use this Link if You are an Instructor.
+            </p>
+            <p>
+                <a  href="@Url.Content("~/InstructorArea/")">
+                    <button class="btn btn-primary">
+                        Enter >></button></a></p>
+        </div>
+        <div class="span4">
+            <img class="img-circle" src="/content/Images/user.jpg" />
+            <h4>
+                 Student</h4>
+            <p>
+                 Use this Link if You are a Student
+            </p>
+            <p>
+                <a  href="@Url.Content("~/StudentArea/")">
+                    <button class="btn btn-primary">
+                        Enter >></button></a></p>
+        </div>
+    </div>
+</div>

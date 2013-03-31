@@ -2,13 +2,28 @@
 @{
     ViewBag.Title = "Browse Chapters";
 }
-<div class="genre">
+
+<div class="well container">
     <h3>
-        <em>@Model.CourseName</em> : Chapters</h3>
-    <ul id="album-list">
+        @Model.CourseName</h3>
+    <p>
+        List of Chapters</p>
+    <ul class="thumbnails">
+        <!-- List start -->
         @foreach (var chapter in Model.Chapters)
-        { <li><a href="@Url.Action("Details", new { id = chapter.ChapterId })">
-            <img alt="@chapter.ChapterTitle" src="@chapter.ChapterArtUrl" />
-            <span>@chapter.ChapterTitle</span> </a></li> }
+        {
+            <li class="span3">
+                <div class="thumbnail">
+                    <a href="@Url.Action("Details", new { id = chapter.ChapterId })">
+                        <div class="caption">
+                            <h5>@chapter.ChapterTitle</h5>
+                        </div>
+                        <div class="thumbnail">
+                            <img alt="@chapter.ChapterTitle" src="@chapter.ChapterArtUrl" />
+                        </div>
+                    </a>
+                </div>
+            </li>
+        }
     </ul>
 </div>

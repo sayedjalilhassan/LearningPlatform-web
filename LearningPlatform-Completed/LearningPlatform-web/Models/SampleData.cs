@@ -53,6 +53,7 @@ namespace LearningPlatform.Models
             departments.ForEach(s => context.Departments.Add(s));
             context.SaveChanges();
 
+            
             var courses = new List<Course>
             {
                 new Course { CourseId = 101, CourseName = "English", Credits = 3 , DepartmentID = 1, Instructors = new List<Instructor>()},

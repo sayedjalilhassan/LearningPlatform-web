@@ -38,8 +38,16 @@ namespace LearningPlatform.Controllers
         // GET: /StudentArea/Profile
         public ActionResult Profile()
         {
-            return View();
+            User current = (User)Session["CurrentUser"];
+            ViewBag.User = current.Email_ID;
+
+            Student student = (from stu in db.Students
+                               where stu.Email_ID.Equals(current.Email_ID)
+                               select stu).FirstOrDefault();
+
+            return View(student);
         }
+
    
 
         protected override void Dispose(bool disposing)

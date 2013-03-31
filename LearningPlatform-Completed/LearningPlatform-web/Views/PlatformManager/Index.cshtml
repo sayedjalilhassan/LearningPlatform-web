@@ -3,52 +3,65 @@
     {
         if (input.Length <= length)
         { 
-            @input
+    @input
         }
         else
         { 
-            @input.Substring(0, length)<text>...</text>
+    @input.Substring(0, length)<text>...</text>
         }
 }
 @{
     ViewBag.Title = "Index";
 }
-<h2>
-    Index</h2>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            Course
-        </th>
-        <th>
-            Instructor
-        </th>
-        <th>
-            ChapterTitle
-        </th>
-        <th>
-        </th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Course.CourseName)
-            </td>
-            <td>
-                @Truncate(item.Instructor.InstructorName, 25)
-            </td>
-            <td>
-                @Truncate(item.ChapterTitle, 25)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ChapterId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ChapterId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ChapterId })
-            </td>
-        </tr>
-    }
-</table>
+<div class="container">
+    <h2>
+        Admin Panel</h2>
+    <div class="btn-toolbar">
+        <a href="@Url.Action("Create")">
+            <button class="btn btn-primary">
+                Create New
+            </button>
+        </a>
+    </div>
+    <div class="well">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Course
+                    </th>
+                    <th>
+                        Instructor
+                    </th>
+                    <th>
+                        ChapterTitle
+                    </th>
+                    <th style="width: 100px;">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Course.CourseName)
+                        </td>
+                        <td>
+                            @Truncate(item.Instructor.InstructorName, 25)
+                        </td>
+                        <td>
+                            @Truncate(item.ChapterTitle, 25)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit", new { id = item.ChapterId })"><i class="icon-pencil"></i>
+                            </a><a href="@Url.Action("Details", new { id = item.ChapterId })"><i class="icon-info-sign">
+                            </i></a><a href="@Url.Action("Delete", new { id = item.ChapterId })"><i class="icon-remove">
+                            </i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

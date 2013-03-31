@@ -4,32 +4,26 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
 <fieldset>
-    <legend>Chapter</legend>
-
-    <div class="display-label">Course</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Course.CourseName)
-    </div>
-
-    <div class="display-label">Instructor</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Instructor.InstructorName)
-    </div>
-
-    <div class="display-label">ChapterTitle</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ChapterTitle)
-    </div>
-
-    <div class="display-label">ChapterArtUrl</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ChapterArtUrl)
-    </div>
+    <h2> Chapter Details</h2>
+    <div class="span4 well">
+	<div class="row">
+		<div class="span1"><img src="/content/Images/user.jpg" alt=""></div>
+		<div class="span3">
+            <p>Course: </p>
+          	<p><strong>@Html.DisplayFor(model => model.Course.CourseName)</strong></p>
+            <p>Instructor: </p>
+            <p><strong>@Html.DisplayFor(model => model.Instructor.InstructorName)</strong></p>
+            <p>Chapter Title:</p>
+            <p><strong>@Html.DisplayFor(model => model.ChapterTitle)</strong></p>
+			<a href="@Url.Action("Edit", new { id = Model.ChapterId })">
+            <span class=" badge badge-warning">Edit</span> </a>
+            <a href="@Url.Action("Index")">
+            <span class=" badge badge-info">Back to List</span> </a>
+		</div>
+	</div>
+</div>
 </fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ChapterId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+

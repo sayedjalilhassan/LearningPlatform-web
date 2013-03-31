@@ -2,19 +2,22 @@
 @{
     ViewBag.Title = "Details";
 }
-<h2>
-    Chapter: @Model.ChapterTitle</h2>
-<p>
-    <img alt="@Model.ChapterTitle" src="@Model.ChapterArtUrl" />
-</p>
-<div id="album-details">
-    <p>
-        <em>Course:</em> @Model.Course.CourseName
-    </p>
-    <p>
-        <em>Instructor:</em> @Model.Instructor.InstructorName
-    </p>
-    <p class="button">
-        @Html.ActionLink("Add to cart", "AddToCart","DownloadCart", new { id = Model.ChapterId }, "")
-    </p>
+
+<fieldset>
+    <div class="span4 well">
+    <h4>
+    Chapter: @Model.ChapterTitle</h4>
+	<div class="row">
+		<div class="span1"><img src="/content/Images/placeholder.gif" alt=""/></div>
+		<div class="span3">
+            <p>Course: </p>
+          	<p><strong> @Model.Course.CourseName</strong></p>
+            <p>Instructor: </p>
+            <p><strong>@Model.Instructor.InstructorName</strong></p>
+
+			<a href="@Url.Action("AddToCart","DownloadCart", new { id = Model.ChapterId })">
+            <span class=" badge badge-warning">Add to Cart</span> </a>
+		</div>
+	</div>
 </div>
+</fieldset>
