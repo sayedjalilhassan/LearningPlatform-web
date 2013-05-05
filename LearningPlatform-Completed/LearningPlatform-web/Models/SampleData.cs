@@ -61,7 +61,7 @@ namespace LearningPlatform.Models
                 new Course { CourseId = 300, CourseName = "Computer Sciences", Credits = 4 , DepartmentID = 3, Instructors = new List<Instructor>()},
                 new Course { CourseId = 412, CourseName = "Biology" , Credits = 3, DepartmentID = 3, Instructors = new List<Instructor>()},
                 new Course { CourseId = 545, CourseName = "Physics" , Credits = 3, DepartmentID = 3, Instructors = new List<Instructor>()},
-                new Course { CourseId = 102, CourseName = "Math" , Credits = 4, DepartmentID = 2, Instructors = new List<Instructor>()},
+                new Course { CourseId = 102, CourseName = "Mathematics" , Credits = 4, DepartmentID = 2, Instructors = new List<Instructor>()},
                 new Course { CourseId = 203, CourseName = "History" , Credits = 2, DepartmentID = 4, Instructors = new List<Instructor>()},
                 new Course { CourseId = 402, CourseName = "Software Engineering" , Credits = 3, DepartmentID = 3, Instructors = new List<Instructor>()},
                 new Course { CourseId = 501, CourseName = "Graphics" , Credits = 4, DepartmentID = 3, Instructors = new List<Instructor>()},
@@ -79,6 +79,10 @@ namespace LearningPlatform.Models
             courses[4].Instructors.Add(instructors[3]);
             courses[5].Instructors.Add(instructors[3]);
             courses[6].Instructors.Add(instructors[3]);
+            courses[7].Instructors.Add(instructors[0]);
+            courses[7].Instructors.Add(instructors[1]);
+            courses[8].Instructors.Add(instructors[2]);
+            courses[9].Instructors.Add(instructors[1]);
             context.SaveChanges();
 
 
@@ -112,7 +116,29 @@ namespace LearningPlatform.Models
                 new Chapter{ ChapterTitle = "Work and Energy", Course = courses.Single(g => g.CourseName == "Computer Sciences"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
                 new Chapter{ ChapterTitle = "Properties of Matter", Course = courses.Single(g => g.CourseName == "Computer Sciences"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
                 new Chapter{ ChapterTitle = "Thermal Properties of Matter", Course = courses.Single(g => g.CourseName == "Computer Sciences"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
-                new Chapter{ ChapterTitle = "Transfer of Heat", Course = courses.Single(g => g.CourseName == "Computer Sciences"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"}
+                new Chapter{ ChapterTitle = "Transfer of Heat", Course = courses.Single(g => g.CourseName == "Computer Sciences"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+
+                new Chapter{ ChapterTitle = "Definition of Matrix", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Order of Matrix" , Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Row Matrix and Column Matrix", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Square and Rectangular Martix", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Null or zero Matrix", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Transpose of a Matrix", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Symmetric and Skew-symmetric Matrices", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Diagonal Matrix", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Scalar Matrix", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Identity Matrix", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Addition of Matrices" , Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Subtraction of Matrices", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Multiplication of a Matrix by a Real number", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Commutative Law under Addition of Matrices", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Associative Law under Addition of Matrices", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Additive Identity of a Matrix", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Additive Inverse of a Matrix", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Multiplication of Matrices", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Associative Law under Multiplication of Matrices", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Distributive Law of Multiplication over Addition for Matrices" , Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
+                new Chapter{ ChapterTitle = "Commutative Law of Multiplication of Matrices for Matrices", Course = courses.Single(g => g.CourseName == "Mathematics"), Instructor = instructors.Single(a => a.InstructorName == "Pervaiz HoodBhoy"), ChapterArtUrl = "/Content/Images/placeholder.gif"},
             }.ForEach(a => context.Chapters.Add(a)); context.SaveChanges();
 
             var enrollments = new List<Enrollment>

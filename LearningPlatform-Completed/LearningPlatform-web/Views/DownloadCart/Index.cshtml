@@ -1,9 +1,7 @@
 ﻿@model LearningPlatform.ViewModels.DownloadCartViewModel
-
 @{
     ViewBag.Title = "Download Cart";
 }
-
 <script src="/Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
@@ -55,37 +53,47 @@
 <h3>
     <em>Review</em> your cart:
 </h3>
-<p class="button">
-    @Html.ActionLink("Checkout >>", "DownloadProcess", "Checkout")
+<p>
+    <button class="btn btn-primary">
+        @Html.ActionLink("Checkout >>", "DownloadProcess", "Checkout")
+    </button>
 </p>
 <div id="update-message">
 </div>
-<table>
-    <tr>
-        <th>
-            Chapter Name
-        </th>
-
-
-        <th>
-            Course
-        </th>
-        
-        <th></th>
-    </tr>
-    @foreach (var item in Model.CartItems)
-    {
-        <tr id="row-@item.RecordId">
-            <td>
-                @Html.ActionLink(item.Chapter.ChapterTitle, "Details", "Platform", new { id = item.ChapterId }, null)
-            </td>
-            <td>
-                @item.Chapter.Course.CourseName
-            </td>
-            <td>
-                <a href="#" class="RemoveLink" data-id="@item.RecordId">Remove from cart</a>
-            </td>
-        </tr>
-    }
-    
-</table>
+<div class="well">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Chapter Name
+                </th>
+                <th>
+                    Course
+                </th>
+                <th>
+                </th>
+                <th style="width: 100px;">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model.CartItems)
+                {
+                <tr id="row-@item.RecordId">
+                    <td>
+                        @Html.ActionLink(item.Chapter.ChapterTitle, "Details", "Platform", new { id = item.ChapterId }, null)
+                    </td>
+                    <td>
+                        @item.Chapter.Course.CourseName
+                    </td>
+                    <td>
+                        <a href="#" class="RemoveLink" data-id="@item.RecordId">Remove from cart</a>
+                    </td>
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+</div> 

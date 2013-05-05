@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Browse";
 }
-
 <div class="well container">
     <h3>
         Browse Courses</h3>
@@ -12,7 +11,7 @@
         <!-- List start -->
         @foreach (var course in Model)
         {
-            <li class="span3">
+@* <li class="span3">
                 <div class="thumbnail">
                     <a href="@Url.Action("Browse", new { course = course.CourseName })">
                         <div class="caption">
@@ -23,6 +22,32 @@
                         </div>
                     </a>
                 </div>
+            </li>*@
+            
+            <li class="span4 well">
+                <fieldset>
+                    <h4>
+                        Course: @course.CourseName</h4>
+                    <div class="row">
+                        <div class="span1">
+                            <img src="/content/Images/placeholder.gif" alt="" /></div>
+                        <div class="span3">
+                            <p>
+                                Instructor:
+                            </p>
+                            <p>
+                                <strong>Pervaiz HoodBhoy</strong></p>
+                            <p>
+                                Department:
+                            </p>
+                            <p>
+                                <strong>@course.Department.DepartmentName</strong></p>
+
+                            <a href="@Url.Action("Browse", new { course = course.CourseName })"><span class=" badge badge-warning">
+                                Details</span> </a>
+                        </div>
+                    </div>
+                </fieldset>
             </li>
         }
     </ul>

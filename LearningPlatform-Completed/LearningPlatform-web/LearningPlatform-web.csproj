@@ -92,6 +92,7 @@
     <Compile Include="Controllers\PlatformManagerController.cs" />
     <Compile Include="Controllers\StudentAreaController.cs" />
     <Compile Include="Controllers\StudentManagerController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -313,6 +314,8 @@
     <Content Include="Views\StudentArea\Courses.cshtml" />
     <Content Include="Views\StudentArea\Profile.cshtml" />
     <None Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Upload\Index.cshtml" />
+    <Content Include="Views\Upload\GetItem.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
